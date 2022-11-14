@@ -1,4 +1,5 @@
 Program works with files. 
+Input file's name is obtained by command line.
 
 File EXAMPLE:
   *Up to 1000 lines.
