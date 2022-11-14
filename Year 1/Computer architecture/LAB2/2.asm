@@ -7,6 +7,26 @@ section .text
     startas:
         macPutString 'Iveskite rasymo failo varda:', crlf, '$'
         
+        ; Sutvarkomas skaitymo failas
+        .commandLine:
+            mov bx, 82h
+            mov si, 0h
+            jmp .tikrink
+
+        ; Tikrina, kurioje vietoje prideti 0h prie skaitymo failo.
+        ; Pavercia i ASCIIZ
+        .tikrink:
+            mov cl, [bx+si]
+            cmp cl, 20h
+            jl .pridekNuli
+            inc si
+            jmp .tikrink
+        
+        ; Pridedamas nulis paciame gale
+        .pridekNuli:
+            mov byte [bx+si], 0h
+            xor si, si
+        
             ; Issaugome rasymo failo varda
         mov al, 128         
         mov dx, rasymoFailas
@@ -14,7 +34,7 @@ section .text
         macNewLine
         
         ; Atidaryti skaitymo faila
-        mov dx, skaitymoFailas
+        mov dx, bx
         call procFOpenForReading
         jnc .rasymoFailasAtidarytas
         macPutString 'Klaida atidarant skaitymo faila', '$'
@@ -121,6 +141,8 @@ section .text
             mov bx, [skaitymoDeskriptorius]
             call procFClose
         
+        macPutString 'Programa baige darba', crlf, '$'
+
         exit
         
 %include 'yasmlib.asm'
@@ -180,11 +202,9 @@ procPridekSkaiciu:
     
     ;eilutesSkaicius++
     xor ah, ah
-	macPutString 'Pridedu skaiciu', crlf, '$'
     mov al, byte [eilutesSkaicius]
     inc al
     mov [eilutesSkaicius], al
-    call procPutUInt16
     
     pop dx
     pop cx
