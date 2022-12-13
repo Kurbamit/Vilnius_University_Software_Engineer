@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "file.h"
 
+//Print all nodes
 void PrintList(node *head)
 {
     while (head != NULL)
@@ -14,6 +15,7 @@ void PrintList(node *head)
     }
 }
 
+//Create doubly linked list
 void AddToEmpty(node **head, int data)
 {
     node *temp = malloc(sizeof(node));
@@ -24,23 +26,25 @@ void AddToEmpty(node **head, int data)
 
 }
 
+//Add node to existing doubly linked list
 void Push(node **head, int data)
 {
-    node *temp, *tp;
+    node *temp, *temporaryHead;
 
     temp = malloc(sizeof(node));
     temp->prev = NULL;
     temp->next = NULL;
     temp->number = data;
-    tp = *head;
+    temporaryHead = *head;
 
-    while (tp->next != NULL)
-        tp = tp->next;
+    while (temporaryHead->next != NULL)
+        temporaryHead = temporaryHead->next;
 
-    tp->next = temp;
-    temp->prev = tp;
+    temporaryHead->next = temp;
+    temp->prev = temporaryHead;
 }
 
+//Find and delete smallest node
 void DeleteSmallest(node **head, int n)
 {
     node *smallest, *temp, *temporaryHead;
@@ -74,13 +78,15 @@ void DeleteSmallest(node **head, int n)
         temporaryHead = temp->prev;
         temporaryHead->next = temp->next;
         temp->next->prev = temporaryHead;
+        *head = temporaryHead;
         free(temp);
         temp = NULL;
     }else if(position == 1)             // If node is the first element
     {
-        *head = temp->next;
-        free(temp->prev);
-        *head = NULL;
+        temporaryHead = temp->next;
+        temporaryHead->prev = NULL;
+        *head = temporaryHead;
+        free(temp);
     }else                               // If node is the last element
     {
         while(temp->next != NULL)
@@ -92,6 +98,7 @@ void DeleteSmallest(node **head, int n)
     }
 }
 
+//Free all allocated memory
 void CleanUp(node *head)
 {
     node *next;
