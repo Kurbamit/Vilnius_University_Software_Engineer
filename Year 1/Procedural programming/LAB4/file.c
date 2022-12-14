@@ -5,31 +5,39 @@
 #include <stdlib.h>
 #include "file.h"
 
-//Print all nodes
+//Print list
 void PrintList(node *head)
 {
+    node *last = head;
     while (head != NULL)
     {
-        printf("NUMBER:%d ADDRESS:%p PREVADD:%p NEXTADD:%p\n", head->number, head, head->prev, head->next);
+        printf("NUMBER: %d\n", head->number);
+        if(head->next != NULL)
+            last = last->next;
         head = head->next;
     }
-}
-
-//Create doubly linked list
-void AddToEmpty(node **head, int data)
-{
-    node *temp = malloc(sizeof(node));
-    temp->prev = NULL;
-    temp->next = NULL;
-    temp->number = data;
-    *head = temp;
-
+    printf("\nATBULAI\n");
+    head = last;
+    while (head != NULL)
+    {
+        printf("NUMBER: %d\n", head->number);
+        head = head->prev;
+    }
 }
 
 //Add node to existing doubly linked list
 void Push(node **head, int data)
 {
     node *temp, *temporaryHead;
+    if(*head == NULL)
+    {
+        temp = malloc(sizeof(node));
+        temp->prev = NULL;
+        temp->next = NULL;
+        temp->number = data;
+        *head = temp;
+        return;
+    }
 
     temp = malloc(sizeof(node));
     temp->prev = NULL;
@@ -99,14 +107,16 @@ void DeleteSmallest(node **head, int n)
 }
 
 //Free all allocated memory
-void CleanUp(node *head)
+void CleanUp(node **head)
 {
-    node *next;
+    node *current = *head;
+    node *next = NULL;
 
-    while(head != NULL)
+    while(current != NULL)
     {
-        next = head->next;
-        free(head);
-        head = next;
+        next = current->next;
+        free(current);
+        current = next;
     }
+    *head = NULL;
 }
