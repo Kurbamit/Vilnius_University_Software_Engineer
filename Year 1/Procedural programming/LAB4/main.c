@@ -13,8 +13,8 @@ int main()
     node *head = NULL;
     int numberOfItems = 4;
 
-    //Creating list
-    AddToEmpty(&head, 3);
+    //Creating doubly linked list
+    Push(&head, 3);
     Push(&head, 2);
     Push(&head, 4);
     Push(&head, 5);
@@ -29,7 +29,8 @@ int main()
     PrintList(head);
 
     // Free all the pointers
-    CleanUp(head);
+    CleanUp(&head);
 
     return 0;
 }
+
