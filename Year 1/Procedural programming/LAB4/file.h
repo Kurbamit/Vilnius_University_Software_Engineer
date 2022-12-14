@@ -16,7 +16,7 @@ void AddToEmpty(node **head, int data);
 void Push(node **head, int data);
 //Delete the smallest element
 void DeleteSmallest(node **head, int n);
-//Free all the data
-void CleanUp(node *head);
+//Free all allocated memory
+void CleanUp(node **head);
 
 #endif //KETVIRTA_UDUOTIS_FILE_H
