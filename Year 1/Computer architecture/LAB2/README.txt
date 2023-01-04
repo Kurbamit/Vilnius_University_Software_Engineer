@@ -14,3 +14,4 @@ symbol 'B' nor 'C' in first two columns.
 
 Created by: Dominykas Černovas
 Email: dominykas.cernovas@mif.vu.stud.lt
+ 
