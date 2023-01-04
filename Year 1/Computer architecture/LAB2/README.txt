@@ -1,4 +1,4 @@
-# Working with files
+<h1>Working with files</h1>
 
 Program works with files. 
 Input file's name is obtained by command line.
