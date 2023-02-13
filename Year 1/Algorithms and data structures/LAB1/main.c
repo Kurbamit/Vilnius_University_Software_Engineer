@@ -1,42 +1,27 @@
+// FOR TESTING
+
 #include <stdio.h>
-#include "file.h"
+#include "deck.h"
 
 int main() {
-    node *head = NULL;
+    deck *head = NULL;
 
-    PushBack(&head, 10);
-    PushBack(&head, 9);
+    PushBack(&head,10);
     PushBack(&head, 11);
-    PushBack(&head, 1);
+    PushBack(&head, 12);
 
-    PrintDeque(head);
+    PrintDeck(head);
 
-    DeleteFront(&head);
-    printf("Front Deleted:\n");
-    PrintDeque(head);
+    printf("FIRST ELEMENT: %d\n", GetFirstElement(head));
+    printf("LAST ELEMENT: %d\n", GetLastElement(head));
 
-    DeleteBack(&head);
-    printf("Back Deleted:\n");
-    PrintDeque(head);
+    printf("DECK SIZE: %d\n", DeckSize(head));
 
-    PushFront(&head, 99);
-    PushBack(&head, 99);
-    printf("PUSH FRONT AND BACK:\n");
-    PrintDeque(head);
+    printf("DELETE DECK\n");
 
-    DeleteBack(&head);
-    DeleteFront(&head);
+    DeleteDeck(&head);
 
-    printf("DELETE FRONT AND BACK:\n");
-    PrintDeque(head);
-
-    DeleteFront(&head);
-    DeleteFront(&head);
-
-    printf("DELETED DEQUE:\n");
-    PrintDeque(head);
-
-    CleanUp(&head);
+    printf("DECK SIZE: %d\n", DeckSize(head));
 
     return 0;
 }
