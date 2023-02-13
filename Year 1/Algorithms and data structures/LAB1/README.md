@@ -1,4 +1,4 @@
-# DEQUE data structure
+# DECK data structure
 
 ### How to use these functions.
 
