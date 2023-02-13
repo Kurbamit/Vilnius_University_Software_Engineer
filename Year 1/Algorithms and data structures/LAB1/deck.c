@@ -1,14 +1,64 @@
 //
 // Created by Dominykas Cernovas on 2023-02-08.
+// Updated 02-13
 //
 #include <stdlib.h>
 #include <stdio.h>
-#include "file.h"
+#include "deck.h"
 
-//Print list
-void PrintDeque(node *head)
+int IsEmpty(deck *head)
 {
-    node *last = head;
+    if(head == NULL)
+    {
+        return 0;
+    }else
+    {
+        return 1;
+    }
+}
+
+int IsFull(deck *head)
+{
+    deck *test = malloc(sizeof(deck));
+    if(test == NULL)
+    {
+        return 1;
+    }else
+    {
+        free(test);
+        return 0;
+    }
+}
+
+int GetFirstElement(deck *head)
+{
+    return head->number;
+}
+
+int GetLastElement(deck *head)
+{
+    while(head->next != NULL)
+        head = head->next;
+    return head->number;
+}
+
+int DeckSize(deck *head)
+{
+    if(head == NULL)
+        return 0;
+
+    int length = 0;
+    while(head->next != NULL)
+    {
+        head = head->next;
+        ++length;
+    }
+    return ++length;
+}
+
+void PrintDeck(deck *head)
+{
+    deck *last = head;
     while (head != NULL)
     {
         printf("NUMBER: %d\n", head->number);
@@ -18,13 +68,12 @@ void PrintDeque(node *head)
     }
 }
 
-//Add node to existing doubly linked list
-void PushBack(node **head, int data)
+void PushBack(deck **head, int data)
 {
-    node *temp, *temporaryHead;
+    deck *temp, *temporaryHead;
     if(*head == NULL)
     {
-        temp = malloc(sizeof(node));
+        temp = malloc(sizeof(deck));
         temp->prev = NULL;
         temp->next = NULL;
         temp->number = data;
@@ -32,7 +81,7 @@ void PushBack(node **head, int data)
         return;
     }
 
-    temp = malloc(sizeof(node));
+    temp = malloc(sizeof(deck));
     temp->prev = NULL;
     temp->next = NULL;
     temp->number = data;
@@ -45,13 +94,13 @@ void PushBack(node **head, int data)
     temp->prev = temporaryHead;
 }
 
-void PushFront(node **head, int data)
+void PushFront(deck **head, int data)
 {
-    node *temp, *temporaryHead;
+    deck *temp, *temporaryHead;
 
     if(*head == NULL)
     {
-        temp = malloc(sizeof(node));
+        temp = malloc(sizeof(deck));
         temp->prev = NULL;
         temp->next = NULL;
         temp->number = data;
@@ -59,7 +108,7 @@ void PushFront(node **head, int data)
         return;
     }
 
-    temp = malloc(sizeof(node));
+    temp = malloc(sizeof(deck));
     temp->prev = NULL;
     temp->number = data;
     temporaryHead = *head;
@@ -68,16 +117,16 @@ void PushFront(node **head, int data)
     *head = temp;
 }
 
-void DeleteBack(node **head)
+void DeleteBack(deck **head)
 {
-    node *temp, *temporaryHead = NULL;
+    deck *temp, *temporaryHead = NULL;
 
     temp = *head;
 
     //If there is one element left, delete all deque
     if(temp->next == NULL && temp->prev == NULL)
     {
-        CleanUp(head);
+        DeleteDeck(head);
         return;
     }
 
@@ -91,10 +140,9 @@ void DeleteBack(node **head)
     temp = NULL;
 }
 
-//Push front function
-void DeleteFront(node **head)
+void DeleteFront(deck **head)
 {
-    node *temp, *temporaryHead;
+    deck *temp, *temporaryHead;
 
     temporaryHead = NULL;
     temp = *head;
@@ -102,7 +150,7 @@ void DeleteFront(node **head)
     //If there is one element left, delete all deque
     if(temp->next == NULL && temp->prev == NULL)
     {
-        CleanUp(head);
+        DeleteDeck(head);
         return;
     }
 
@@ -112,11 +160,10 @@ void DeleteFront(node **head)
     free(temp);
 }
 
-//Free all allocated memory
-void CleanUp(node **head)
+void DeleteDeck(deck **head)
 {
-    node *current = *head;
-    node *next = NULL;
+    deck *current = *head;
+    deck *next = NULL;
 
     while(current != NULL)
     {
