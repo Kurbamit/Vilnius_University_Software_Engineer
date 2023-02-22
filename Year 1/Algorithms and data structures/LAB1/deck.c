@@ -1,6 +1,6 @@
 //
 // Created by Dominykas Cernovas on 2023-02-08.
-// Updated 02-13
+// Updated 02-22
 //
 #include <stdlib.h>
 #include <stdio.h>
@@ -117,17 +117,17 @@ void PushFront(deck **head, int data)
     *head = temp;
 }
 
-void DeleteBack(deck **head)
+int DeleteBack(deck **head)
 {
     deck *temp, *temporaryHead = NULL;
-
+    int pop = GetLastElement(*head);
     temp = *head;
 
     //If there is one element left, delete all deque
     if(temp->next == NULL && temp->prev == NULL)
     {
         DeleteDeck(head);
-        return;
+        return pop;
     }
 
     while(temp->next != NULL)
@@ -138,12 +138,13 @@ void DeleteBack(deck **head)
 
     free(temp);
     temp = NULL;
+    return pop;
 }
 
-void DeleteFront(deck **head)
+int DeleteFront(deck **head)
 {
     deck *temp, *temporaryHead;
-
+    int pop = GetFirstElement(*head);
     temporaryHead = NULL;
     temp = *head;
 
@@ -151,13 +152,14 @@ void DeleteFront(deck **head)
     if(temp->next == NULL && temp->prev == NULL)
     {
         DeleteDeck(head);
-        return;
+        return pop;
     }
 
     temporaryHead = temp->next;
     temporaryHead->prev = NULL;
     *head = temporaryHead;
     free(temp);
+    return pop;
 }
 
 void DeleteDeck(deck **head)
