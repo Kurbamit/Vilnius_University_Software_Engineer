@@ -1,6 +1,6 @@
 //
 // Created by Dominykas Cernovas on 2023-02-08.
-// Updated 2023-02-13
+// Updated 2023-02-22
 //
 
 #ifndef PIRMA_UDUOTIS_FILE_H
@@ -37,8 +37,8 @@ void PushBack(deck **head, int data);
 void PushFront(deck **head, int data);
 
 //Delete the smallest element
-void DeleteFront(deck **head);
-void DeleteBack(deck **head);
+int DeleteFront(deck **head);
+int DeleteBack(deck **head);
 
 //Free all allocated memory
 void DeleteDeck(deck **head);
