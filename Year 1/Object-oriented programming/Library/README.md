@@ -6,7 +6,7 @@ This app is a work in progress.
 - Package "Biblioteka" has been created, that contains three classes.
   - Leidinys.java *(publication.java)* is a superclass of Knyga.java *(book.java)* and Žurnalas.java *(journal.java)*.
 - Package "Identification" contains every readers ID's.
-
+---
 ### 2023-03-07 update: 
 - Identification package has been created.
   - Reader's registration has been added.
