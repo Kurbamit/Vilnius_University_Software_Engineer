@@ -13,3 +13,7 @@
 - [ ] Adding a GUI
 - [ ] Adding registration for users
 - [ ] Adding issue of library publications for readers.
+
+
+Created by Dominykas Černovas
+Email: dominykas.cernovas@mif.vu.stud.lt
