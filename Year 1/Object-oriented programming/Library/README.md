@@ -16,4 +16,4 @@
 
 
 Created by Dominykas Černovas
-Email: dominykas.cernovas@mif.vu.stud.lt
+Email: dominykas.cernovas@mif.stud.vu.lt
