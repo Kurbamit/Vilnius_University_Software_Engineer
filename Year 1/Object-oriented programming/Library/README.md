@@ -15,6 +15,7 @@
 - [ ] Adding issue of library publications for readers.
 
 
+---
 Created by Dominykas Černovas
 
 Email 📫 dominykas.cernovas@mif.stud.vu.lt
