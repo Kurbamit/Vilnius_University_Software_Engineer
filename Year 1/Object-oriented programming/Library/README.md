@@ -1,7 +1,7 @@
 # Library management system
 
 This app is a work in progress.
-
+---
 ### What has been done:
 - Package "Biblioteka" has been created, that contains three classes.
   - Leidinys.java *(publication.java)* is a superclass of Knyga.java *(book.java)* and Žurnalas.java *(journal.java)*.
