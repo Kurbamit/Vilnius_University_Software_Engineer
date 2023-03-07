@@ -14,5 +14,5 @@
 - [ ] Adding registration for users
 - [ ] Adding issue of library publications for readers.
 
-termo
-:definition
+term
+: definition
