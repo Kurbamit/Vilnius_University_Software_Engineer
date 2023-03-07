@@ -1,10 +1,31 @@
 //
 // Created by Dominykas Cernovas on 2023-02-16.
-// V1.0
+//
 #include <stdio.h>
 #include "sudokuSolver.h"
 
-int printTable(int grid[N][N])
+void printTable2(int grid[N][N])
+{
+    int counter = 0;
+    for(int i = 0; i < N; ++i)
+    {
+        for(int j = 0; j < N; ++j)
+        {
+            if(j == 3 || j == 6)
+                printf("| ");
+            printf("%d ", grid[i][j]);
+        }
+        if(i == 2 || i == 5)
+        {
+            printf("\n");
+            for(int temp = 0; temp < N * 2 + 3; ++temp)
+                printf("―");
+        }
+        printf("\n");
+    }
+}
+
+void printTable(int grid[N][N])
 {
     for(int i = 0; i < N; ++i)
     {
@@ -17,14 +38,14 @@ int printTable(int grid[N][N])
 int canPlace(int grid[N][N], int row, int col, int number)
 {
     // Check number in columns
-    for(int i = row; i < N; ++i)
+    for(int i = 0; i < N - 1; ++i)
     {
         if(grid[row][i] == number)
             return 0;
     }
 
     // Check number in rows
-    for(int i = col; i < N; ++i)
+    for(int i = 0; i < N - 1; ++i)
     {
         if(grid[i][col] == number)
             return 0;
