@@ -10,6 +10,6 @@
   - Reader's registration has been added.
 ---
 ### Further ideas:
-- Adding a GUI
-- Adding registration for users
-- Adding issue of library publications for readers.
+[] Adding a GUI
+[] Adding registration for users
+[] Adding issue of library publications for readers.
