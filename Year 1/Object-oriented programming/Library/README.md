@@ -10,7 +10,7 @@ This app is a work in progress.
 ### 2023-03-07 update: 
 - Identification package has been created.
   - Reader's registration has been added.
-
+---
 ### Further ideas:
 - Adding a GUI
 - Adding registration for users
