@@ -5,6 +5,7 @@ sudokuSolver(int grid[9][9], int row, int col) - return value 1 - sudoku is solv
 
 
 **INPUT:** 
+```
 { { 3, 1, 6, 5, 7, 8, 4, 9, 2 },
 { 5, 2, 9, 1, 3, 4, 7, 6, 8 },
 { 4, 8, 7, 6, 2, 9, 5, 3, 1 },
@@ -14,8 +15,10 @@ sudokuSolver(int grid[9][9], int row, int col) - return value 1 - sudoku is solv
 { 1, 3, 8, 0, 4, 7, 2, 0, 6 },
 { 6, 9, 2, 3, 5, 1, 8, 7, 4 },
 { 7, 4, 5, 0, 8, 6, 3, 1, 0 } };
+```
 
 **OUTPUT:**
+```
 3 1 6 | 5 7 8 | 4 9 2 
 5 2 9 | 1 3 4 | 7 6 8 
 4 8 7 | 6 2 9 | 5 3 1 
@@ -27,3 +30,4 @@ sudokuSolver(int grid[9][9], int row, int col) - return value 1 - sudoku is solv
 1 3 8 | 9 4 7 | 2 5 6 
 6 9 2 | 3 5 1 | 8 7 4 
 7 4 5 | 2 8 6 | 3 1 9 
+```
