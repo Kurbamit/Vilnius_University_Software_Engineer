@@ -34,8 +34,8 @@ public class Leidinys {
     }
 
     //  !!Static method can only access static fields!!
-    public static void isVisoLeidiniu(){
-        System.out.println("Leidinių skaičius: " + publicationCount);
+    public static int isVisoLeidiniu(){
+        return publicationCount;
     }
 
     public boolean isduoti(int days)
