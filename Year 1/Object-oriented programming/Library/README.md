@@ -13,6 +13,7 @@
 - Updated identification class:
   - Simplified class.
   - Auto registration.
+- Added books and journals static counter.
 ---
 ### Further ideas:
 - [ ] Adding a GUI
