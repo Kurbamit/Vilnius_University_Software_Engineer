@@ -1,18 +1,19 @@
 package Identification;
-import java.util.UUID;
-
 public class ID {
-    private UUID personID;
-    public ID(){}
-    public ID(UUID personID){
-        this.personID = personID;
-    }
+    private static int lastID = 0;
+    private int id;
+
+    public ID(){this.id = nextID();}
 
     public void printID(){
-        System.out.println("Person's ID: " + personID);
+        System.out.println("ID: " + id);
     }
 
-    public void registracija(){
-        personID = UUID.randomUUID();
-    }
+    public static int nextID(){return ++lastID;}
+    // Getters
+    public static int getLastID(){return lastID;}
+    public int getId(){return id;}
+
+    // Setters
+    public void setId(int id){this.id = id;}
 }
