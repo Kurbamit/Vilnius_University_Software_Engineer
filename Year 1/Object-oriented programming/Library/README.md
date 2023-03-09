@@ -8,6 +8,11 @@
 ### 2023-03-07 update: 
 - Identification package has been created.
   - Reader's registration has been added.
+
+### 2023-03-09 update:
+- Updated identification class:
+  - Simplified class.
+  - Auto registration.
 ---
 ### Further ideas:
 - [ ] Adding a GUI
