@@ -4,16 +4,21 @@ import java.time.LocalDate;
 public class Zurnalas extends Leidinys{
     // Additional field
     private int issueYear;
+    private static int journalCount = 0;
 
     public Zurnalas(){}
     public Zurnalas(String name, String author, int issueYear){
         super(name, author);
         this.issueYear = issueYear;
+        ++journalCount;
     }
+    public static int isVisoZurnalu(){
+        return journalCount;
+    }
+
     // *Polymorphism
     public final void println(){
         super.println(getClass().getName(), issueYear);
-
     }
     // *toString override
     public String toString(){
