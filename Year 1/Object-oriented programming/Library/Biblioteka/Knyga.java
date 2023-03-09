@@ -4,12 +4,19 @@ import java.time.LocalDate;
 public class Knyga extends Leidinys{
     // Additional field
     private int issueYear;
+    private static int bookCount = 0;
 
     public Knyga(){}
     public Knyga(String name, String author, int issueYear){
         super(name, author);
         this.issueYear = issueYear;
+        ++bookCount;
     }
+
+    public static int isVisoKnygu(){
+        return bookCount;
+    }
+
     // *Polymorphism
     public final void println(){
         super.println(getClass().getName(), issueYear);
