@@ -1,41 +1,29 @@
 package Biblioteka;
 import java.time.LocalDate;
 
-public class Zurnalas extends Leidinys{
+public class Zurnalas extends Leidinys implements IsduotiZurnala{
     // Additional field
-    private int issueYear;
+    private String redactor;
     private static int journalCount = 0;
 
+//    private final int MAX_JOURNAL_ISSUED_DAYS = 1;
+
     public Zurnalas(){}
-    public Zurnalas(String name, String author, int issueYear){
-        super(name, author);
-        this.issueYear = issueYear;
+    public Zurnalas(String name, String redactor, int issueYear){
+        super(name, issueYear);
+        this.redactor = redactor;
         ++journalCount;
     }
     public static int isVisoZurnalu(){
         return journalCount;
     }
 
-    // *Polymorphism
-    public final void println(){
-        super.println(getClass().getName(), issueYear);
-    }
+
     // *toString override
     public String toString(){
-        return "Žurnalas: " + getName() + " Leidėjas: " + getAuthor() + " Leidimo metai: " + issueYear;
+        return "\nRedaktorius: " + redactor + super.toString();
     }
 
-    // *Override
-    public boolean isduoti(int days){
-        if(getIssued())
-            return false;
-        else{
-            setIssued(true);
-            setIssueDate(LocalDate.now());
-            setReturnDate(LocalDate.now().plusDays(days));
-            return true;
-        }
-    }
     // *Override
     public boolean isduoti(){
         if(getIssued())
@@ -47,18 +35,8 @@ public class Zurnalas extends Leidinys{
             return true;
         }
     }
-    // Additional method
-    public boolean grazinti(){
-        if(getIssued())
-        {
-            setIssued(false);
-            setIssueDate(null);
-            setReturnDate(null);
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public void setIssueYear(int issueYear){this.issueYear = issueYear;}
-    public int getIssueYear(){return this.issueYear;}
+
+
+    public String getRedactor(){return redactor;}
+    public void setRedactor(String author){this.redactor = author;}
 }
