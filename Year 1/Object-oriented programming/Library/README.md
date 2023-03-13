@@ -14,6 +14,10 @@
   - Simplified class.
   - Auto registration.
 - Added books and journals static counter.
+
+### 20230-03-13 update:
+- Added interfaces
+- Updadet super class (made it abstract)
 ---
 ### Further ideas:
 - [ ] Adding a GUI
