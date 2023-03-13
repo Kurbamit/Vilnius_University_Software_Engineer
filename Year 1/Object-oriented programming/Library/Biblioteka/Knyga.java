@@ -1,15 +1,16 @@
 package Biblioteka;
 import java.time.LocalDate;
 
-public class Knyga extends Leidinys{
-    // Additional field
-    private int issueYear;
+public class Knyga extends Leidinys implements IsduotiKnyga{
+    // Additional fields
+    private String author;
     private static int bookCount = 0;
+//    private final int MAX_BOOK_ISSUED_DAYS = 30;
 
     public Knyga(){}
     public Knyga(String name, String author, int issueYear){
-        super(name, author);
-        this.issueYear = issueYear;
+        super(name, issueYear);
+        this.author = author;
         ++bookCount;
     }
 
@@ -17,26 +18,11 @@ public class Knyga extends Leidinys{
         return bookCount;
     }
 
-    // *Polymorphism
-    public final void println(){
-        super.println(getClass().getName(), issueYear);
-    }
     // *toString override
     public String toString(){
-        return "Knyga: " + getName() + " Autorius: " + getAuthor() + " Leidimo metai: " + issueYear;
+        return "\nAutorius: " + author + super.toString();
     }
 
-    // *Override
-    public boolean isduoti(int days){
-        if(getIssued())
-            return false;
-        else{
-            setIssued(true);
-            setIssueDate(LocalDate.now());
-            setReturnDate(LocalDate.now().plusDays(days));
-            return true;
-        }
-    }
     // *Override
     public boolean isduoti(){
         if(getIssued())
@@ -49,18 +35,23 @@ public class Knyga extends Leidinys{
         }
     }
     // Additional method
-    public boolean grazinti(){
-        if(getIssued())
-        {
-            setIssued(false);
-            setIssueDate(null);
-            setReturnDate(null);
-            return true;
-        }else{
+    public final boolean pratestiKnyga(int days){
+        if(!getIssued()) {
             return false;
+        }else {
+            setReturnDate(LocalDate.now().plusDays(days));
+            return true;
         }
     }
+    public final boolean pratestiKnyga(){
+        if(!getIssued()) {
+            return false;
+        }
+        setReturnDate(LocalDate.now().plusWeeks(1));
+        return true;
+    }
 
-    public void setIssueYear(int issueYear){this.issueYear = issueYear;}
-    public int getIssueYear(){return this.issueYear;}
+    public String getAuthor(){return author;}
+    public void setAuthor(String author){this.author = author;}
+
 }
