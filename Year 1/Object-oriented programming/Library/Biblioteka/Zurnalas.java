@@ -6,7 +6,6 @@ public class Zurnalas extends Leidinys implements IsduotiZurnala{
     private String redactor;
     private static int journalCount = 0;
 
-//    private final int MAX_JOURNAL_ISSUED_DAYS = 1;
 
     public Zurnalas(){}
     public Zurnalas(String name, String redactor, int issueYear){
@@ -19,12 +18,12 @@ public class Zurnalas extends Leidinys implements IsduotiZurnala{
     }
 
 
-    // *toString override
+    @Override
     public String toString(){
         return "\nRedaktorius: " + redactor + super.toString();
     }
 
-    // *Override
+    @Override
     public boolean isduoti(){
         if(getIssued())
             return false;
