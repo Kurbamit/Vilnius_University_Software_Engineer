@@ -18,7 +18,7 @@ public class Knyga extends Leidinys implements IsduotiKnyga{
         return bookCount;
     }
 
-    // *toString override
+    @Override toString
     public String toString(){
         return "\nAutorius: " + author + super.toString();
     }
