@@ -13,5 +13,4 @@ interface IsduotiKnyga extends BibliotekaLeidinys{
 
 interface IsduotiZurnala extends BibliotekaLeidinys{
     int MAX_JOURNAL_ISSUED_DAYS = 1;
-    boolean isduoti();
 }
