@@ -23,7 +23,7 @@ public class Knyga extends Leidinys implements IsduotiKnyga{
         return "\nAutorius: " + author + super.toString();
     }
 
-    // *Override
+    @Override
     public boolean isduoti(){
         if(getIssued())
             return false;
@@ -34,7 +34,8 @@ public class Knyga extends Leidinys implements IsduotiKnyga{
             return true;
         }
     }
-    // Additional method
+    
+    // Additional methods
     public final boolean pratestiKnyga(int days){
         if(!getIssued()) {
             return false;
