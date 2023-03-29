@@ -1,6 +1,9 @@
 # Library management system
 
-### What has been done:
+Progress tracking...
+---
+
+### CREATION:
 - Package "Biblioteka" has been created, that contains three classes.
   - Leidinys.java *(publication.java)* is a superclass of Knyga.java *(book.java)* and Žurnalas.java *(journal.java)*.
 - Package "Identification" contains every readers ID's.
