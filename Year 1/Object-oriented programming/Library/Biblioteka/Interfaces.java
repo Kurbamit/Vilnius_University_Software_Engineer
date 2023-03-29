@@ -1,16 +1,13 @@
 package Biblioteka;
 
-interface BibliotekaLeidinys{
-    boolean isduoti();
-    boolean grazinti();
+// Pagrindinis interface
+interface Isduodamas{
+    boolean isduoti() throws PublicationIssuedException;
+    boolean grazinti() throws PublicationIssuedException;
 }
 
-interface IsduotiKnyga extends BibliotekaLeidinys{
-    int MAX_BOOK_ISSUED_DAYS = 30;
-    boolean pratestiKnyga(int days);
-    boolean pratestiKnyga();
-}
-
-interface IsduotiZurnala extends BibliotekaLeidinys{
-    int MAX_JOURNAL_ISSUED_DAYS = 1;
+// Išplėstinis interface
+interface Pratesimas extends Isduodamas{
+    boolean pratesti(int days) throws PublicationIssuedException;
+    boolean pratesti() throws PublicationIssuedException;
 }
