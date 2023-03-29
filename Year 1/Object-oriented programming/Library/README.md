@@ -18,6 +18,10 @@
 ### 20230-03-13 update:
 - Added interfaces
 - Updadet super class (made it abstract)
+
+### 20230-03-29 update:
+- Updated interfaces
+- Added custom exceptions
 ---
 ### Further ideas:
 - [ ] Adding a GUI
