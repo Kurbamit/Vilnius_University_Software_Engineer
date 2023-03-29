@@ -1,11 +1,11 @@
 package Biblioteka;
 import java.time.LocalDate;
 
-public class Knyga extends Leidinys implements IsduotiKnyga{
+public class Knyga extends Leidinys implements Pratesimas{
     // Additional fields
     private String author;
     private static int bookCount = 0;
-//    private final int MAX_BOOK_ISSUED_DAYS = 30;
+    private final int MAX_BOOK_ISSUED_DAYS = 30;
 
     public Knyga(){}
     public Knyga(String name, String author, int issueYear){
@@ -18,15 +18,15 @@ public class Knyga extends Leidinys implements IsduotiKnyga{
         return bookCount;
     }
 
-    @Override
+    // *toString override
     public String toString(){
         return "\nAutorius: " + author + super.toString();
     }
 
-    @Override
-    public boolean isduoti(){
+    // *Override
+    public boolean isduoti() throws PublicationIssuedException{
         if(getIssued())
-            return false;
+            throw new PublicationIssuedException("Book is already issued.");
         else{
             setIssued(true);
             setIssueDate(LocalDate.now());
@@ -34,19 +34,32 @@ public class Knyga extends Leidinys implements IsduotiKnyga{
             return true;
         }
     }
-    
-    // Additional methods
-    public final boolean pratestiKnyga(int days){
+
+    public boolean grazinti() throws PublicationIssuedException{
+        if(!getIssued())
+        {
+            throw new PublicationIssuedException("Book is not issued.");
+        }else{
+            setIssued(false);
+            setReturnDate(null);
+            setIssueDate(null);
+            return true;
+        }
+    }
+    // Additional method
+    public final boolean pratesti(int days) throws PublicationIssuedException {
         if(!getIssued()) {
-            return false;
-        }else {
+            throw new PublicationIssuedException("Book is not issued.");
+        }else if(days <= 0){
+            throw new NegativeDaysException("Negative days parameter.");
+        }else{
             setReturnDate(LocalDate.now().plusDays(days));
             return true;
         }
     }
-    public final boolean pratestiKnyga(){
+    public final boolean pratesti() throws PublicationIssuedException{
         if(!getIssued()) {
-            return false;
+            throw new PublicationIssuedException("Book is not issued.");
         }
         setReturnDate(LocalDate.now().plusWeeks(1));
         return true;
