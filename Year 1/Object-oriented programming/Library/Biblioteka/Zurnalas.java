@@ -1,10 +1,11 @@
 package Biblioteka;
 import java.time.LocalDate;
 
-public class Zurnalas extends Leidinys implements IsduotiZurnala{
+public class Zurnalas extends Leidinys implements Isduodamas{
     // Additional field
     private String redactor;
     private static int journalCount = 0;
+    private final int MAX_JOURNAL_ISSUED_DAYS = 1;
 
 
     public Zurnalas(){}
@@ -18,15 +19,15 @@ public class Zurnalas extends Leidinys implements IsduotiZurnala{
     }
 
 
-    @Override
+    // *toString override
     public String toString(){
         return "\nRedaktorius: " + redactor + super.toString();
     }
 
-    @Override
-    public boolean isduoti(){
+    // *Override
+    public boolean isduoti() throws PublicationIssuedException{
         if(getIssued())
-            return false;
+            throw new PublicationIssuedException("Journal is already issued.");
         else{
             setIssued(true);
             setIssueDate(LocalDate.now());
@@ -34,7 +35,17 @@ public class Zurnalas extends Leidinys implements IsduotiZurnala{
             return true;
         }
     }
-
+    public boolean grazinti() throws PublicationIssuedException {
+        if(getIssued())
+        {
+            throw new PublicationIssuedException("Journal is not issued.");
+        }else{
+            setIssued(false);
+            setReturnDate(null);
+            setIssueDate(null);
+            return true;
+        }
+    }
 
     public String getRedactor(){return redactor;}
     public void setRedactor(String author){this.redactor = author;}
