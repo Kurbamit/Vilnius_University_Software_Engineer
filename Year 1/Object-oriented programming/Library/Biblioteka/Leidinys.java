@@ -1,7 +1,7 @@
 package Biblioteka;
 import java.time.LocalDate;
 
-public abstract class Leidinys implements BibliotekaLeidinys{
+public abstract class Leidinys implements Isduodamas{
     // Fields (laukai)
     private String name;
     private int issueYear;
@@ -21,7 +21,6 @@ public abstract class Leidinys implements BibliotekaLeidinys{
         ++publicationCount;
     }
 
-    @Override
     public String toString(){
         return "\nPavadinimas: " + name + "\nLeidimo metai: " + issueYear + "\nIšduota: " +
                 issueDate + "\nGrąžinti: " + returnDate;
@@ -34,30 +33,6 @@ public abstract class Leidinys implements BibliotekaLeidinys{
         return publicationCount;
     }
 
-    public boolean isduoti()
-    {
-        if(this.issued)
-            return false;
-        else{
-            this.issued = true;
-            this.issueDate = LocalDate.now();
-            this.returnDate = LocalDate.now().plusDays(7);
-            return true;
-        }
-    }
-
-    // Methods that can not be overridden
-    public final boolean grazinti(){
-        if(this.issued)
-        {
-            this.issued = false;
-            this.issueDate = null;
-            this.returnDate = null;
-            return true;
-        }else{
-            return false;
-        }
-    }
 
 
     // Getters
@@ -66,8 +41,8 @@ public abstract class Leidinys implements BibliotekaLeidinys{
     public LocalDate getReturnDate(){return returnDate;}
     public boolean getIssued(){return issued;}
     public int getIssueYear(){return issueYear;}
-    
     // Setters
+
     public void setName(String name){this.name = name;}
     public void setIssueDate(LocalDate issueDate){this.issueDate = issueDate;}
     public void setReturnDate(LocalDate returnDate){this.returnDate = returnDate;}
