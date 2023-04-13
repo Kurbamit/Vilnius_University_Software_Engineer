@@ -11,37 +11,41 @@ public class Main {
         Zurnalas Z2 = new Zurnalas("Savaitė", "TV3", 2023);
 
 
-//        K1.isduoti();
-//        K1.println();
-//
-//        Z2.isduoti();
-//        Z2.println();
-//
-//        ID ID1 = new ID();
-//        ID ID2 = new ID();
-//        ID1.printID();
-//        ID2.printID();
-//        System.out.println(ID.getLastID());
-
-        // Polymorphism
         Knyga K3 = new Knyga("Hamletas", "Sekspyras", 2020);
         Zurnalas Z3 = new Zurnalas("Savaitė", "TV3", 2023);
 
-        K3.isduoti();
-        Z3.isduoti();
+        // ? JEIGU LEIDINYS JAU ISDUOTAS
+        try{
+            K3.isduoti();
+        }catch(PublicationIssuedException pie){
+            System.out.println("Leidinys jau išduotas.");
+        }
 
-//        K3.println();
-//        Z3.println();
+        try{
+            K3.isduoti();
+        }catch(PublicationIssuedException pie){
+            System.out.println("Leidinys jau išduotas.");
+        }
 
-        // Isduoti/Grazinti
-//        K1.isduoti();
-//        K1.println();
-//        K1.grazinti();
-//        K1.println();
+        // ?------------------------------------------
+        // ? Jeigu leidinys nera isduotas arba neigiamas dienu skaicius
+        try{
+            K1.pratesti();
+        }catch(NegativeDaysException nde){
+            System.out.println("Neigiamas dienu skaicius.");
+        }catch(PublicationIssuedException pie)
+        {
+            System.out.println("Leidinys nera isduotas.");
+        }
 
+        try{
+            K3.pratesti(-1);
+        }catch(NegativeDaysException nde){
+        System.out.println("Neigiamas dienu skaicius.");
+        }
+        catch(PublicationIssuedException pie){
+        System.out.println("Leidinys nera isduotas.");
+        }
 
-        // toString
-        System.out.println(K3);
-        System.out.println(Z3);
     }
 }
