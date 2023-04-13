@@ -25,17 +25,16 @@ public class Zurnalas extends Leidinys implements Isduodamas{
     }
 
     // *Override
-    public boolean isduoti() throws PublicationIssuedException{
+    public void isduoti() throws PublicationIssuedException{
         if(getIssued())
             throw new PublicationIssuedException("Journal is already issued.");
         else{
             setIssued(true);
             setIssueDate(LocalDate.now());
             setReturnDate(LocalDate.now().plusDays(MAX_JOURNAL_ISSUED_DAYS));
-            return true;
         }
     }
-    public boolean grazinti() throws PublicationIssuedException {
+    public void grazinti() throws PublicationIssuedException {
         if(getIssued())
         {
             throw new PublicationIssuedException("Journal is not issued.");
@@ -43,7 +42,6 @@ public class Zurnalas extends Leidinys implements Isduodamas{
             setIssued(false);
             setReturnDate(null);
             setIssueDate(null);
-            return true;
         }
     }
 
