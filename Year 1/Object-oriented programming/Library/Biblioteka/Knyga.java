@@ -24,18 +24,17 @@ public class Knyga extends Leidinys implements Pratesimas{
     }
 
     // *Override
-    public boolean isduoti() throws PublicationIssuedException{
+    public void isduoti() throws PublicationIssuedException{
         if(getIssued())
             throw new PublicationIssuedException("Book is already issued.");
         else{
             setIssued(true);
             setIssueDate(LocalDate.now());
             setReturnDate(LocalDate.now().plusDays(MAX_BOOK_ISSUED_DAYS));
-            return true;
         }
     }
 
-    public boolean grazinti() throws PublicationIssuedException{
+    public void grazinti() throws PublicationIssuedException{
         if(!getIssued())
         {
             throw new PublicationIssuedException("Book is not issued.");
@@ -43,26 +42,23 @@ public class Knyga extends Leidinys implements Pratesimas{
             setIssued(false);
             setReturnDate(null);
             setIssueDate(null);
-            return true;
         }
     }
     // Additional method
-    public final boolean pratesti(int days) throws PublicationIssuedException {
+    public final void pratesti(int days) throws PublicationIssuedException {
         if(!getIssued()) {
             throw new PublicationIssuedException("Book is not issued.");
         }else if(days <= 0){
             throw new NegativeDaysException("Negative days parameter.");
         }else{
             setReturnDate(LocalDate.now().plusDays(days));
-            return true;
         }
     }
-    public final boolean pratesti() throws PublicationIssuedException{
+    public final void pratesti() throws PublicationIssuedException{
         if(!getIssued()) {
             throw new PublicationIssuedException("Book is not issued.");
         }
         setReturnDate(LocalDate.now().plusWeeks(1));
-        return true;
     }
 
     public String getAuthor(){return author;}
