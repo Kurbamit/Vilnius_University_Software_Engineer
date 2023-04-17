@@ -15,7 +15,7 @@ public class Main {
         Zurnalas Z3 = new Zurnalas("Savaitė", "TV3", 2023);
 
 
-
+        //TESTING DEEP CLONING
         try{
             Z1 = (Zurnalas) Z2.clone();
         }catch (CloneNotSupportedException cnse)
