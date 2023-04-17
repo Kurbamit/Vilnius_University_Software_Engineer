@@ -13,7 +13,8 @@ sugaišta vienodai laiko, bet prašymo sutvarkymui skirtingai laiko), stojančio
 dokumentų priėmimo laikas. Rezultatai: papildomas darbo laikas, kuris turi būti skiriamas prašymų
 tvarkymui, darbuotojų užimtumas (procentais), nes galima situacija, kad pagal pateiktus pradinius
 duomenis stojančiųjų intensyvumas toks nedidelis, kad dalį laiko darbuotojos poilsiauja.`
----
+
+
 #### params.txt
 - How long does it take to accept documents
 - Productivity of the first worker
