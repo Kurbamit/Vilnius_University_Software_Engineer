@@ -3,6 +3,10 @@
 Progress tracking...
 ---
 
+'''
+Main.java is for testing purposes for now.
+'''
+
 ### CREATION:
 - Package "Biblioteka" has been created, that contains three classes.
   - Leidinys.java *(publication.java)* is a superclass of Knyga.java *(book.java)* and Žurnalas.java *(journal.java)*.
@@ -18,13 +22,17 @@ Progress tracking...
   - Auto registration.
 - Added books and journals static counter.
 
-### 20230-03-13 update:
+### 2023-03-13 update:
 - Added interfaces
 - Updadet super class (made it abstract)
 
-### 20230-03-29 update:
+### 2023-03-29 update:
 - Updated interfaces
 - Added custom exceptions
+
+### 2023-04-17
+- Updated exceptions
+- Overriden clone() method.
 ---
 ### Further ideas:
 - [ ] Adding a GUI
