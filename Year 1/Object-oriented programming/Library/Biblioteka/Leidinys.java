@@ -31,7 +31,7 @@ public abstract class Leidinys implements Isduodamas{
         return publicationCount;
     }
 
-
+    public void grazinti() throws LibraryException{}
 
     // Getters
     public String getName(){return name;}
