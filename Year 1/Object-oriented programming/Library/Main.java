@@ -14,38 +14,18 @@ public class Main {
         Knyga K3 = new Knyga("Hamletas", "Sekspyras", 2020);
         Zurnalas Z3 = new Zurnalas("Savaitė", "TV3", 2023);
 
-        // ? JEIGU LEIDINYS JAU ISDUOTAS
-        try{
-            K3.isduoti();
-        }catch(PublicationIssuedException pie){
-            System.out.println("Leidinys jau išduotas.");
-        }
+
 
         try{
-            K3.isduoti();
-        }catch(PublicationIssuedException pie){
-            System.out.println("Leidinys jau išduotas.");
-        }
-
-        // ?------------------------------------------
-        // ? Jeigu leidinys nera isduotas arba neigiamas dienu skaicius
-        try{
-            K1.pratesti();
-        }catch(NegativeDaysException nde){
-            System.out.println("Neigiamas dienu skaicius.");
-        }catch(PublicationIssuedException pie)
+            Z1 = (Zurnalas) Z2.clone();
+        }catch (CloneNotSupportedException cnse)
         {
-            System.out.println("Leidinys nera isduotas.");
+            System.out.println(cnse);
         }
 
-        try{
-            K3.pratesti(-1);
-        }catch(NegativeDaysException nde){
-        System.out.println("Neigiamas dienu skaicius.");
-        }
-        catch(PublicationIssuedException pie){
-        System.out.println("Leidinys nera isduotas.");
-        }
+        Z1.remejas.setRemejas("PILDYK");
 
+        System.out.println(Z2);
+        System.out.println(Z1);
     }
 }
