@@ -1,4 +1,4 @@
-# Real life scenario simulation
+Real life scenario simulation
 ---
 
 Task:
