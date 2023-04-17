@@ -1,14 +1,6 @@
 package Biblioteka;
 
-public class NegativeDaysException extends PublicationIssuedException{
-    public NegativeDaysException(){}
-    public NegativeDaysException(String message){
-        super(message);
-    }
-    public NegativeDaysException(Throwable cause){
-        super(cause);
-    }
-    public NegativeDaysException(String message, Throwable cause){
-        super(message, cause);
-    }
+public class NegativeDaysException extends LibraryException{
+    public int days;
+    public NegativeDaysException(String message, int days){super(message); this.days = days;}
 }
