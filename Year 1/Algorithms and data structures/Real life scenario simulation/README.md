@@ -1,6 +1,10 @@
 
 Task:
-Priėmimo komisija (ADT: dekas). Procesas: priėmimo komisijoje dirba 2
+
+
+
+
+`Priėmimo komisija (ADT: dekas). Procesas: priėmimo komisijoje dirba 2
 darbuotojos, kurių produktyvumas skirtingas, jos priima stojančiųjų prašymus ir stato į lentyną,
 kiekviena iš savo pusės, kai nėra stojančiųjų ir pasibaigus tos dienos priėmimui, jos ima stojančiųjų
 prašymus ir juos sutvarko. Tikslas: patyrinėti, kiek laiko reikia skirti prašymų tvarkymui, pasibaigus jų
