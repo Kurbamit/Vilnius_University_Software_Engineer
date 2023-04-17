@@ -1,5 +1,6 @@
 # Real life scenario simulation
 
+
 TASK:
 `Priėmimo komisija (ADT: dekas). Procesas: priėmimo komisijoje dirba 2
 darbuotojos, kurių produktyvumas skirtingas, jos priima stojančiųjų prašymus ir stato į lentyną,
