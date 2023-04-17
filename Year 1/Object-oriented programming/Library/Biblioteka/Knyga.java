@@ -1,7 +1,7 @@
 package Biblioteka;
 import java.time.LocalDate;
 
-public class Knyga extends Leidinys implements Pratesimas{
+public class Knyga extends Leidinys implements Pratesimas, Cloneable{
     // Additional fields
     private String author;
     private static int bookCount = 0;
@@ -18,26 +18,26 @@ public class Knyga extends Leidinys implements Pratesimas{
         return bookCount;
     }
 
-    // *toString override
+    @Override
     public String toString(){
         return "\nAutorius: " + author + super.toString();
     }
 
-    // *Override
-    public void isduoti() throws PublicationIssuedException{
+    @Override
+    public void isduoti() throws LibraryException{
         if(getIssued())
-            throw new PublicationIssuedException("Book is already issued.");
+            throw new LibraryException("Book is already issued.");
         else{
             setIssued(true);
             setIssueDate(LocalDate.now());
             setReturnDate(LocalDate.now().plusDays(MAX_BOOK_ISSUED_DAYS));
         }
     }
-
-    public void grazinti() throws PublicationIssuedException{
+    @Override
+    public void grazinti() throws LibraryException{
         if(!getIssued())
         {
-            throw new PublicationIssuedException("Book is not issued.");
+            throw new LibraryException("Book is not issued.");
         }else{
             setIssued(false);
             setReturnDate(null);
@@ -45,23 +45,27 @@ public class Knyga extends Leidinys implements Pratesimas{
         }
     }
     // Additional method
-    public final void pratesti(int days) throws PublicationIssuedException {
+    public final void pratesti(int days) throws LibraryException {
         if(!getIssued()) {
-            throw new PublicationIssuedException("Book is not issued.");
+            throw new LibraryException("Book is not issued.");
         }else if(days <= 0){
-            throw new NegativeDaysException("Negative days parameter.");
+            throw new NegativeDaysException("Negative days parameter.", days);
         }else{
             setReturnDate(LocalDate.now().plusDays(days));
         }
     }
-    public final void pratesti() throws PublicationIssuedException{
+    public final void pratesti() throws LibraryException{
         if(!getIssued()) {
-            throw new PublicationIssuedException("Book is not issued.");
+            throw new LibraryException("Book is not issued.");
         }
         setReturnDate(LocalDate.now().plusWeeks(1));
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
     public String getAuthor(){return author;}
     public void setAuthor(String author){this.author = author;}
-
 }
