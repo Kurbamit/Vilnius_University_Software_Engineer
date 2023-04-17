@@ -2,12 +2,12 @@ package Biblioteka;
 
 // Pagrindinis interface
 interface Isduodamas{
-    void isduoti() throws PublicationIssuedException;
-    void grazinti() throws PublicationIssuedException;
+    void isduoti() throws LibraryException;
+    void grazinti() throws LibraryException;
 }
 
 // Išplėstinis interface
 interface Pratesimas extends Isduodamas{
-    void pratesti(int days) throws PublicationIssuedException;
-    void pratesti() throws PublicationIssuedException;
+    void pratesti(int days) throws LibraryException;
+    void pratesti() throws LibraryException;
 }
