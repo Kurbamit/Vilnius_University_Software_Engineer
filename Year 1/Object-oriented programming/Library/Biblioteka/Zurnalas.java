@@ -1,12 +1,12 @@
 package Biblioteka;
 import java.time.LocalDate;
 
-public class Zurnalas extends Leidinys implements Isduodamas{
+public class Zurnalas extends Leidinys implements Isduodamas, Cloneable{
     // Additional field
     private String redactor;
     private static int journalCount = 0;
     private final int MAX_JOURNAL_ISSUED_DAYS = 1;
-
+    public Remejas remejas = new Remejas("TELE2");
 
     public Zurnalas(){}
     public Zurnalas(String name, String redactor, int issueYear){
@@ -19,25 +19,26 @@ public class Zurnalas extends Leidinys implements Isduodamas{
     }
 
 
-    // *toString override
+    @Override
     public String toString(){
-        return "\nRedaktorius: " + redactor + super.toString();
+        return "\nRedaktorius: " + redactor + super.toString() + remejas;
     }
 
-    // *Override
-    public void isduoti() throws PublicationIssuedException{
+    @Override
+    public void isduoti() throws LibraryException{
         if(getIssued())
-            throw new PublicationIssuedException("Journal is already issued.");
+            throw new LibraryException("Journal is already issued.");
         else{
             setIssued(true);
             setIssueDate(LocalDate.now());
             setReturnDate(LocalDate.now().plusDays(MAX_JOURNAL_ISSUED_DAYS));
         }
     }
-    public void grazinti() throws PublicationIssuedException {
+    @Override
+    public void grazinti() throws LibraryException {
         if(getIssued())
         {
-            throw new PublicationIssuedException("Journal is not issued.");
+            throw new LibraryException("Journal is not issued.");
         }else{
             setIssued(false);
             setReturnDate(null);
@@ -45,6 +46,16 @@ public class Zurnalas extends Leidinys implements Isduodamas{
         }
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        //? DEEP klonavimas
+        Zurnalas zurnalas = (Zurnalas) super.clone();
+        zurnalas.remejas = (Remejas) remejas.clone();
+        return zurnalas;
+
+        //? Shallow klonavimas
+//        return super.clone();
+    }
     public String getRedactor(){return redactor;}
     public void setRedactor(String author){this.redactor = author;}
 }
