@@ -9,7 +9,7 @@ public class Main {
 
         // Read people from file
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("src/people.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("people.txt"));
             String line = reader.readLine();
 
             while (line != null) {
