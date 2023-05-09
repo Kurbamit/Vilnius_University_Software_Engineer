@@ -17,7 +17,7 @@ Programai paleisti, reikia turėti tris programinius failus viename aplanke.
 
 **Paleidimas:**
 ```
-cd (programinio failo vieta)
+cd (programos aplanko su 3 failais vieta)
 java -jar LibraryApp.jar
 ```
 Taip pat, galima sukurti script failą, kuriame bus šios dvi komandos.
