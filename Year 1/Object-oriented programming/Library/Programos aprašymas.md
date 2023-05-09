@@ -55,7 +55,7 @@ Visas šis funkcionalumas leidžia vartotojams efektyviai tvarkyti bibliotekos l
 3. **"Zurnalas"** - Ši klasė paveldi klasę ```Leidinys``` ir implementuoja sąsajas ```Pratesimas, Cloneable ir Serializable```. Klasė skirta saugoti žurnalų duomenims. Klasė turi tris laukus: redactor (žurnalo redaktorius), journalCount (žurnalų skaičius), MAX_JOURNAL_ISSUED_DAYS (maksimalus žurnalo išdavimo dienų skaičius). Klasė turi du konstruktoriaus metodus, kurių cienas skirtas sukurti tuščią knygą, o kitas su parametrais: pavadinimas, išleidimo metai ir redaktorius. Klasė turi vieną išimtį: LibraryException (jei žurnalas jau išduotas, ne išduotas arba neegzistuoja).
 4. **"UserInterface"** - Tai yra pagrindinė vartotojo sąsajos klasė. Kuri yra paleidžiama tik vieną kartą ir veikia visą programos gyvavimo laiką. Ši klasė leidžia atlikti meniu pasirinkimus vartotojui.
 
-## Klasių diagrama UML
+## Pagrindinių klasių diagrama UML
 
 [Klasių diagrama](https://lucid.app/lucidchart/303d76dd-85e6-4713-b1e9-722843a213ca/edit?viewport_loc=-161%2C-11%2C2433%2C1361%2C0_0&invitationId=inv_ffdc62fe-4a34-41d8-a81d-531e6c3db57b)
 
