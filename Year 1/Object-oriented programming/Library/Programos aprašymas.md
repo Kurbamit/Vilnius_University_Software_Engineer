@@ -57,12 +57,12 @@ Visas šis funkcionalumas leidžia vartotojams efektyviai tvarkyti bibliotekos l
 
 ## Pagrindinių klasių diagrama UML
 
-<Diagrama>
+<diagrama>
 	
 [Klasių diagrama](https://lucid.app/lucidchart/303d76dd-85e6-4713-b1e9-722843a213ca/edit?viewport_loc=-161%2C-11%2C2433%2C1361%2C0_0&invitationId=inv_ffdc62fe-4a34-41d8-a81d-531e6c3db57b)
 ![Class diagram](https://github.com/Kurbamit/Vilnius_University_Software_Engineer/blob/main/Year%201/Object-oriented%20programming/Library/Biblioteka_UML_Diagrama.png)
 	
-</Diagrama>
+</diagrama>
 
 ## Plėtimo galimybės
 
