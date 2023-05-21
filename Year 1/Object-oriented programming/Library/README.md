@@ -31,7 +31,7 @@ Programos funkcionalumas yra suskirstytas į daugiau nei dešimt punktų, kuriuo
 
 <details>
 
-	[Menu](https://github.com/Kurbamit/Vilnius_University_Software_Engineer/blob/main/Year%201/Object-oriented%20programming/Library/Library%20Menu.jpg)
+![Menu](https://github.com/Kurbamit/Vilnius_University_Software_Engineer/blob/main/Year%201/Object-oriented%20programming/Library/Library%20Menu.jpg)
 	
 </details>
 
