@@ -29,6 +29,12 @@ Taip pat, galima sukurti script failą, kuriame bus šios dvi komandos.
 
 Programos funkcionalumas yra suskirstytas į daugiau nei dešimt punktų, kuriuos galima pasirinkti pagrindiniame meniu. Šie punktai yra:
 
+<details>
+
+	[Menu](https://github.com/Kurbamit/Vilnius_University_Software_Engineer/blob/main/Year%201/Object-oriented%20programming/Library/Library%20Menu.jpg)
+	
+</details>
+
 1. "Pridėti knygą" - leidžia vartotojui pridėti naują knygą į bibliotekos duomenų bazę.
 2. "Pridėti žurnalą" - leidžia vartotojui pridėti naują žurnalą į bibliotekos duomenų bazę.
 3. "Atspausdinti knygas" - atspausdina visų bibliotekos knygų sąrašą.
