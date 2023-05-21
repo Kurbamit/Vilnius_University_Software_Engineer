@@ -29,6 +29,8 @@ Taip pat, galima sukurti script failą, kuriame bus šios dvi komandos.
 
 Programos funkcionalumas yra suskirstytas į daugiau nei dešimt punktų, kuriuos galima pasirinkti pagrindiniame meniu. Šie punktai yra:
 
+Meniu nuotrauka:
+
 <details>
 
 ![Menu](https://github.com/Kurbamit/Vilnius_University_Software_Engineer/blob/main/Year%201/Object-oriented%20programming/Library/Library%20Menu.jpg)
